@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Full Suite">
+    <groups>
+        <run>
+            <exclude name="Failed"/>
+            <exclude name="In development"/>
+            <exclude name="Quarantined"/>
+        </run>
+    </groups>
+    <test name="API Tests" parallel="classes" thread-count="6">
+        <packages>
+            <package name="themoviedb.api.*"/>
+        </packages>
+    </test>
+</suite>

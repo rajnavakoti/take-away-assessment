@@ -1,0 +1,103 @@
+{
+  "type": "object",
+  "ErrorCode": {
+    "type": "integer",
+    "default": ""
+  },
+  "ErrorMessage": {
+    "type": "string",
+    "default": ""
+  },
+  "AddressLine1": {
+    "type": "string",
+    "default": ""
+  },
+  "AddressLine2": {
+    "type": "string",
+    "default": ""
+  },
+  "Number": {
+    "type": "integer",
+    "default": ""
+  },
+  "PreDir": {
+    "type": "string",
+    "default": ""
+  },
+  "Street": {
+    "type": "string",
+    "default": ""
+  },
+  "Suffix": {
+    "type": "string",
+    "default": ""
+  },
+  "PostDir": {
+    "type": "string",
+    "default": ""
+  },
+  "Sec": {
+    "type": "string",
+    "default": ""
+  },
+  "SecNumber": {
+    "type": "string",
+    "default": ""
+  },
+  "City": {
+    "type": "string",
+    "default": ""
+  },
+  "State": {
+    "type": "string",
+    "default": ""
+  },
+  "Zip": {
+    "type": "string",
+    "default": ""
+  },
+  "Zip4": {
+    "type": "string",
+    "default": ""
+  },
+  "County": {
+    "type": "string",
+    "default": ""
+  },
+  "StateFP": {
+    "type": "string",
+    "default": ""
+  },
+  "CountyFP": {
+    "type": "string",
+    "default": ""
+  },
+  "CensusTract": {
+    "type": "string",
+    "default": ""
+  },
+  "CensusBlock": {
+    "type": "string",
+    "default": ""
+  },
+  "Latitude": {
+    "type": "string",
+    "default": ""
+  },
+  "Longitude": {
+    "type": "string",
+    "default": ""
+  },
+  "GeoPrecision": {
+    "type": "string",
+    "default": ""
+  },
+  "TimeZoneOffset": {
+    "type": "string",
+    "default": ""
+  },
+  "DstObserved": {
+    "type": "string",
+    "default": ""
+  }
+}
