@@ -4,13 +4,12 @@ import io.restassured.response.ValidatableResponse
 
 import static io.restassured.RestAssured.given
 
-class Put {
-    static ValidatableResponse makeRequest(String url, Map headers, String jsonBody ) {
+class Delete {
+    static ValidatableResponse makeRequest(String url, Map headers) {
         return given()
                 .headers(headers)
                 .when()
-                .body(jsonBody)
-                .put(url)
+                .delete(url)
                 .then()
                 .log()
                 .all()

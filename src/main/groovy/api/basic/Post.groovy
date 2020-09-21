@@ -15,5 +15,4 @@ class Post {
                 .log()
                 .all()
     }
-
 }
