@@ -1,6 +1,6 @@
 package api.themoviedb.v2.models
 
-import com.github.javafaker.Faker
+import org.apache.commons.lang3.RandomStringUtils
 import groovy.json.JsonGenerator
 
 class CreateListModel {
@@ -8,8 +8,8 @@ class CreateListModel {
     String iso_639_1 = "en"
     String description = "List for test purpose"
 
-    static def createList(String listName) {
-        new CreateListModel("name" : listName)
+    static def createList(String listName,String iso, String description) {
+        new CreateListModel("name" : listName, "iso_639_1":iso, "description":description)
     }
 
     def toJson(){

@@ -7,9 +7,9 @@ class GetListResponse extends Response{
     GetListResponse(ValidatableResponse validatableResponse){
         super(validatableResponse) }
 
-    @Step("Verify Get Address Response Schema")
-    def validateGetAddressResponseSchema(){
-        def pathToResponseSchema = "src/main/resources/schemas/v2/getAddress.json" as File
-        this.verifySchema(pathToResponseSchema)
-        this }
+    @Step("assert Status Code")
+    def assertStatusCode(String statusCode) {
+        this.validatableResponse.assertThat().statusCode(statusCode.toInteger())
+        this
+    }
 }
