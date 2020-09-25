@@ -4,6 +4,9 @@ import io.restassured.response.ValidatableResponse
 
 import static io.restassured.RestAssured.given
 
+/***
+ * API post request
+ */
 class Post {
     static ValidatableResponse makeRequest(String url, Map headers,String jsonBody ) {
         return given()
@@ -13,6 +16,5 @@ class Post {
                 .post(url)
                 .then()
                 .log()
-                .all()
-    }
+                .all() }
 }

@@ -10,6 +10,5 @@ class GetListResponse extends Response{
     @Step("assert Status Code")
     def assertStatusCode(String statusCode) {
         this.validatableResponse.assertThat().statusCode(statusCode.toInteger())
-        this
-    }
+        this }
 }

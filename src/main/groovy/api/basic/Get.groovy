@@ -3,6 +3,9 @@ package api.basic
 import io.restassured.response.ValidatableResponse
 import static io.restassured.RestAssured.given
 
+/***
+ * API get request
+ */
 class Get {
     static ValidatableResponse makeRequest(String url, Map headers){
         return given()

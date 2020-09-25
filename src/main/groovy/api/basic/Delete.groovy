@@ -4,6 +4,9 @@ import io.restassured.response.ValidatableResponse
 
 import static io.restassured.RestAssured.given
 
+/***
+ * API delete request
+ */
 class Delete {
     static ValidatableResponse makeRequest(String jsonBody,String url, Map headers) {
         return given()
@@ -14,5 +17,5 @@ class Delete {
                 .then()
                 .log()
                 .all()
-    }
+   }
 }

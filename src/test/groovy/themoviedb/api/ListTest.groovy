@@ -31,6 +31,7 @@ class ListTest {
     int randomStringLength = 6
     String charset = (('0'..'9')).join()
 
+    @Story("Create a new movie list")
     @BeforeMethod()
         before(){
         String listName = "Test List Name " + RandomStringUtils.random(randomStringLength, charset.toCharArray())
@@ -40,30 +41,28 @@ class ListTest {
         CreateListRequest.assertSuccessResponse(createListResponse,"1","The item/record was created successfully.","true")
         listId = CreateListRequest.getListId(createListResponse) }
 
-    @Story("")
+    @Story("Get details of the movie list")
     @Test()
     void getList(){
         getListResponse = GetListRequest.getList(listId)
         GetListRequest.assertListId(getListResponse,listId) }
 
-    @Story("")
+    @Story("Update the movie list")
     @Test(dataProvider = "updateListData", dataProviderClass = ListDataProvider)
     void updateMovieList(String description,String statusCode,String statusMessage,String successFlag){
         updateListModel = UpdateListModel.updateList(description)
         updateListResponse = UpdateListRequest.updateList(updateListModel.toJson(),listId)
-        UpdateItemRequest.assertSuccessResponse(updateListResponse,statusCode,statusMessage,successFlag)
-    }
+        UpdateItemRequest.assertSuccessResponse(updateListResponse,statusCode,statusMessage,successFlag) }
 
-    @Story("")
+    @Story("Add Item to the movie list")
     @Test(dataProvider = "addItemToListData", dataProviderClass = ListDataProvider)
     void addItemToList(String listIdExt,String mediaType,String mediaId,String statusCode,String statusMessage,String successFlag){
         addItemModel = AddItemModel.addItem(mediaType,mediaId)
         addItemResponse = AddItemRequest.addItemsToList(addItemModel.toJson(),listId+listIdExt)
-        AddItemRequest.assertSuccessResponse(addItemResponse,statusCode,statusMessage,successFlag)
-    }
+        AddItemRequest.assertSuccessResponse(addItemResponse,statusCode,statusMessage,successFlag) }
 
 
-    @Story("")
+    @Story("Update item from the movie list")
     @Test(dataProvider = "updateItemToListData", dataProviderClass = ListDataProvider)
     void updateItem(String listIdExt,String mediaType,String mediaId,String statusCode,String statusMessage,String successFlag,String randomComment){
         addItemModel = AddItemModel.addItem(mediaType,mediaId)
@@ -71,10 +70,9 @@ class ListTest {
         AddItemRequest.assertSuccessResponse(addItemResponse,"1","Success.","true")
         updateItemModel = UpdateItemModel.updateItem(mediaType,mediaId,randomComment)
         UpdateItemResponse = UpdateItemRequest.updateItem(updateItemModel.toJson(),listId+listIdExt)
-        UpdateItemRequest.assertSuccessResponse(UpdateItemResponse,statusCode,statusMessage,successFlag)
-    }
+        UpdateItemRequest.assertSuccessResponse(UpdateItemResponse,statusCode,statusMessage,successFlag) }
 
-    @Story("")
+    @Story("Delete item form the movie list")
     @Test(dataProvider = "removeItemToListData", dataProviderClass = ListDataProvider)
     void removeItem(String listIdExt,String mediaType,String mediaId,String statusCode,String statusMessage,String successFlag){
         addItemModel = AddItemModel.addItem(mediaType,mediaId)
@@ -82,13 +80,11 @@ class ListTest {
         AddItemRequest.assertSuccessResponse(addItemResponse,"1","Success.","true")
         deleteItemModel = DeleteItemModel.deleteItem(mediaType,mediaId)
         deleteItemResponse = DeleteItemRequest.deleteItemFromList(deleteItemModel.toJson(),listId+listIdExt)
-        DeleteItemRequest.assertSuccessResponse(deleteItemResponse,statusCode,statusMessage,successFlag)
-    }
+        DeleteItemRequest.assertSuccessResponse(deleteItemResponse,statusCode,statusMessage,successFlag) }
 
-    @Story("")
+    @Story("Clear the created list")
     @AfterMethod()
     void clearList(){
         clearListResponse = ClearListRequest.clearList(listId)
-        ClearListRequest.assertSuccessResponse(clearListResponse,"1","Success.","true")
-        }
+        ClearListRequest.assertSuccessResponse(clearListResponse,"1","Success.","true") }
 }

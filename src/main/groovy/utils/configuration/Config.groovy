@@ -2,6 +2,9 @@ package utils.configuration
 
 import static utils.configuration.PropertiesReader.getKey
 
+/***
+ * function calls to read 'configuration.groovy' file
+ */
 class Config {
     static boolean isLocal() {
         return getKey("executionEnvironment") == 'local' }
